@@ -1,0 +1,12 @@
+{% extends "templates/login.html" %}
+
+{% block main %}
+<div class="container text-center pangeo">
+    <h1>{{ 'NOAA Fisheries JupyterHub' }}</h1>
+    <p>
+      Welcome to this JupyterHub. For more information
+      visit <a href="http://nmfs-opensci.github.io">nmfs-opensci.github.io</a>.
+    </p>
+</div>
+{{ super() }}
+{% endblock %}

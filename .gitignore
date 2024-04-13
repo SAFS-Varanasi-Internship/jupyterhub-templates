@@ -1,2 +1,5 @@
 *.swp
 .Rproj.user
+*.Rproj
+.DS_Store
+extra-assets/.DS_Store
