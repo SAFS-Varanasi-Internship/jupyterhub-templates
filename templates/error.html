@@ -1,35 +1,33 @@
 {% extends "templates/error.html" %}
 
-{% block title %}Error{% endblock %}
-
-{% block scripts %}
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y1FRQDD44F"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-Y1FRQDD44F');
-</script>
-
-<script src="{{static_url("components/requirejs/require.js") }}" type="text/javascript" charset="utf-8"></script>
-<script src="{{static_url("components/jquery/dist/jquery.min.js") }}" type="text/javascript" charset="utf-8"></script>
-<script src="{{static_url("components/bootstrap/dist/js/bootstrap.min.js") }}" type="text/javascript" charset="utf-8"></script>
-
-{% endblock %}
-
 {% block error_detail %}
-{{ super() }}
 {% if status_code == 403 %}
-  <p><strong>It looks like you need to request an account!</strong></p>
-  <p>If you are a LibreTexts instructor or UC Davis affiliate, you can request an account by
-  <a href="mailto:jupyterteam@ucdavis.edu">sending us</a> an email from a Google Authentication connected email address.</p>
-  <p>LibreTexts affiliated student accounts should be requested by their instructors.</p>
-{% elif status_code == 400 %}
-  <p>If your authentication has expired, please login again from <a href="/">the home page</a>.</p>
+<style>
+	.info {
+  		color: #fc8703;
+  		background-color: #f2f2f3;
+		
+		max-width: 640px;
+		padding: 30px;
+		margin: 0 auto;
+		margin-bottom: 30px;
+		overflow: hidden;
+		font-size: 17px;
+	}
+</style>
+<div class="error">
+	<div class="info">
+		<i class="fa fa-info-circle"></i>
+		Looks like you have <b>NOT</b> been added to the list of allowed users for this hub. Please contact the hub administrators.
+	</div>
+	<div class="text-center">
+		<a role="button" class='btn btn-jupyter' href='{{base_url}}/logout'>
+		Tap to try a different account
+		</a>
+	</div>
+</div>
 {% else %}
-  <p>Oh no! Something is probably wrong on our end. If this problem persists, please <a href="mailto:jupyterteam@ucdavis.edu">email us</a>.</p>
+{{ super() }}
 {% endif %}
+
 {% endblock error_detail %}

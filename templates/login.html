@@ -1,319 +1,145 @@
 {% extends "templates/login.html" %}
 
-{% block title %}JupyterHub - Login{% endblock %}
 
-{% block scripts %}
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y1FRQDD44F"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-Y1FRQDD44F');
-</script>
-
-<script src="{{static_url("components/requirejs/require.js") }}" type="text/javascript" charset="utf-8"></script>
-<script src="{{static_url("components/jquery/dist/jquery.min.js") }}" type="text/javascript" charset="utf-8"></script>
-<script src="{{static_url("components/bootstrap/dist/js/bootstrap.min.js") }}" type="text/javascript" charset="utf-8"></script>
-
+{% block nav_bar %}
 {% endblock %}
-
-{% block main %}
-<div class="main-content container">
-  <div class="branding">
-    <div class="logos">
-      <a class="logo" href="https://libretexts.org" target="_blank">
-        <img src="/hub/static/external/images/libretexts_logo.png" alt="Libretexts" style="max-height:150px;max-width:100%;">
-      </a>
-      <a class="logo" href="https://ucdavis.edu" target="_blank" style="padding:20px;">
-        <img src="/hub/static/external/images/UCDavis_blue.png" alt="UC Davis" style="max-height:60px;max-width:100%;">
-      </a>
-      <a class="logo" href="https://www.ed.gov/news/press-releases/us-department-education-awards-49-million-grant-university-california-davis-develop-free-open-textbooks-program"
-          target="_blank">
-        <img class="sponsor" src="/hub/static/external/images/DOESeal.svg" alt="U.S. Department of Education">
-      </a>
-      <a class="logo" href="https://asucd.ucdavis.edu/" target="_blank">
-        <img class="sponsor" src="/hub/static/external/images/asucd-logo-color.png" alt="ASUCD">
-      </a>
-    </div>
-  </div>
-
-  {% block login %}
-  <div class="col-sm-4 left-col">
-    <div id="login-box">
-      <h3 align="center">Login to JupyterHub</h3>
-      {{ super() }}
-    </div>
-    <p>
-      <small>
-        Funded by the
-        <a href="https://www.ed.gov/news/press-releases/us-department-education-awards-49-million-grant-university-california-davis-develop-free-open-textbooks-program"
-            target="_blank"> Open Textbooks Pilot Program (CFDA No. 84.116T)
-        </a> from the U.S. Department of Education. Equipment and support provided by the
-        <a href="https://bioinformatics.ucdavis.edu/" target="_blank">UC Davis Genome Center Bioinformatics Core</a>.
-      </small>
-    </p>
-
-    <div class="sponsors row align-items-center justify-content-around flex-wrap"></div>
-  </div>
-  {% endblock login %}
-
-  <div class="container col-sm-7">
-    <h1>Welcome to the LibreTexts and UC Davis JupyterHub!</h1>
-    <p>This JupyterHub serves LibreTexts instructors and their students, as well as UC Davis faculty, staff, and students.</p>
-
-    <h2>Logging in to the Hub</h2>
-    <p>
-      If you are a UC Davis student or instructor, you may automatically login to the hub with your UC Davis email account. If you are part of LibreTexts then you can request an account by <a href="mailto:jupyterteam@ucdavis.edu">sending us</a> an email from a Google Authentication connected email address. LibreTexts affiliated student accounts should be requested by their instructors.
-    </p>
-
-    <h2 id="gettingstartedwithjupyter">Getting started with Jupyter</h2>
-    <p>
-      <a href="https://jupyter.org/index.html">Jupyter</a> is an environment where you can create interactive notebooks with code, visualizations, and more.
-    </p>
-
-    <p>Some resources to learn Jupyter:</p>
-    <ul>
-      <li>
-        <a href="https://jupyter.org/try">jupyter.org/try</a> has interactive demo notebooks in many different languages
-      </li>
-      <li>
-        <a href="https://github.com/Reproducible-Science-Curriculum/introduction-RR-Jupyter/blob/e5aece1011a43edfd739cbd83a2f4346091a86e2/notebooks/getting_started_with_jupyter_notebooks.ipynb"> Familiarize Yourself with Jupyter</a>, an example Jupyter Notebook tutorial on GitHub
-      </li>
-      <li>
-        <a href="https://www.youtube.com/watch?v=DLWBfR2hxoo&amp;list=PLUrHeD2K9CmnCOjrnHzSIbZbZmDE-lQRt">Demo video</a> of how to navigate a Jupyter Notebook.
-      </li>
-      <li>
-        <a href="https://app.frame.io/reviews/7a3a3e89-63db-4f7d-a1db-c2a852275f75/b82343bc-f242-4f5e-87a3-5c89dd0408f4?version=e0ce5c2f-28f9-4eb2-988a-8988851aa881">Demo video</a> of how to navigate JupyterLab
-      </li>
-      <li>
-        Visit the <a href="https://jupyterlab.readthedocs.io/en/latest/user/interface.html">JupyterLab documentation</a> for more information on navigating the interface.
-      </li>
-    </ul>
-
-    <h2>Any questions?</h2>
-    <p>Please checkout our <a href="{{base_url}}faq">faq</a> page. If you can't find your question, feel free to email us at <a href="mailto:jupyterteam@ucdavis.edu">jupyterteam@ucdavis.edu</a>. For technical issues, open an issue on <a href="https://github.com/LibreTexts/metalc/issues" target="_blank">Github</a> and we will try to resolve it.</p>
-  </div>
-</div>
-
-{% endblock main %}
 
 {% block stylesheet %}
 {{ super() }}
-<style>
-  .main-content {
-    margin-left: auto;
-    margin-right: auto;
-  }
+<link rel="stylesheet" href="{{ static_url('extra-assets/css/login.css') }}" type="text/css"/>
+{% endblock %}
 
-  .logos {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin: auto 30px;
-    flex-wrap: nowrap;
-  }
+{% block script %}
+{{ super() }}
+<script src="{{ static_url('extra-assets/js/login.js') }}"></script>
+{% endblock %}
 
-  .left-col {
-    margin-top: 20px;
-  }
+{% block main %}
+<div class="container login-header" id="home" data-authenticator-login-url="{{authenticator_login_url}}">
+  <div class="text-center">
+    <p class="hub-login-text">The 2i2c JupyterHub for <a href="{{ custom.org.url }}">{{ custom.org.name }}</a></p><br />
+    <a href="{{ custom.org.url }}">
+      <img src="{{ custom.org.logo_url }}" alt="{{ custom.org.name }} logo" class='hub-logo'
+        title='hub logo' />
+    </a>
+  <div id="operated-by">
+      {%- if custom.operated_by.custom_html %}
+      Operated by: {{ custom.operated_by.custom_html | safe }} |
+      {%- else %}
+      Operated by: <a href="{{ custom.operated_by.url }}">{{ custom.operated_by.name }}</a> |
+      {%- endif %}
 
-  #libretexts {
-    max-height: 150px;
-  }
+      {%- if custom.funded_by.custom_html %}
+      Funded by: {{ custom.funded_by.custom_html | safe }} |
+      {%- else %}
+      Funded by: <a href="{{ custom.funded_by.url }}">{{ custom.funded_by.name }}</a> |
+      {%- endif %}
 
-  #ucdavis {
-    max-height: 60px;
-    padding: 10px;
-  }
+      {%- if custom.designed_by.custom_html %}
+      Designed by: {{ custom.designed_by.custom_html | safe }}
+      {%- else %}
+      Designed by: <a href="{{ custom.designed_by.url }}">{{ custom.designed_by.name }}</a>
+      {%- endif %}
+  </div>
+  </div>
+  <div class="login-container text-center">
+    {% if "interface_selector" in custom and custom["interface_selector"] and (not next or next == "%2Fhub%2F") %}
+    <form class="form-inline">
+      <div class="form-group interface-selector">
+        <label>After logging in, open: </label>
+        <label class="radio-inline">
+          <input type="radio" name="interface" value="tree"
+                 {% if "default_url" not in custom or custom["default_url"] == "/tree" %}
+                 checked
+                 {% endif %}
+                 >Jupyter Notebook
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="interface" value="rstudio"
+                 {% if "default_url" in custom and custom["default_url"] == "/rstudio" %}
+                 checked
+                 {% endif %}
+                 >RStudio
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="interface" value="lab"
+                 {% if "default_url" in custom and custom["default_url"] == "/lab" %}
+                 checked
+                 {% endif %}
+                 >JupyterLab
+        </label>
+      </div>
+    </form>
+    <a role="button" id="login-button" class='btn btn-jupyter btn-lg' href='{{authenticator_login_url}}'>
+      Log in to start
+    </a>
+    {% else %}
+    <a role="button" class='btn btn-jupyter btn-lg' href='{{authenticator_login_url}}'>
+      Log in to continue
+    </a>
+    {% endif %}
+  </div>
 
-  .brand {
-    flex-shrink: 2;
-  }
+  <div class="col-md-8 col-md-offset-2 details">
+    <div class="col-md-6">
+      <big class="details-welcome lead">
+      Welcome to the <a href="{{ custom.org.url }}">{{ custom.org.name }}</a> <strong> JupyterHub</strong>.
+      </big>
+    </div>
+    <div class="col-md-6 details-logos">
+      <div class="pull-right">
+        <a href="https://jupyter.org">
+          <img src="{{static_url("extra-assets/images/jupyter-logo.svg") }}" alt='Jupyter' height="64" />
+        </a>
+      </div>
+      <div class="pull-right">
+        <a href="https://rstudio.com">
+          <img src="{{static_url("extra-assets/images/rstudio-logo.svg") }}" alt='RStudio' height="64"/>
+        </a>
+      </div>
+    </div>
 
-  @media all and (max-width: 500px) {
-    .logos {
-      /* On small screens, we are no longer using row direction but column */
-      /* flex-direction: column; */
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .branding img {
-      justify-content: center;
-      max-width: 100%;
-    }
-  }
+  </div>
 
-  @media (max-width: 767px) {
-    .logos {
-      justify-content: space-around;
-    }
-    .logo {
-      flex-basis: 50%;
-    }
-  }
+  {% if custom.announcements is defined %}
+    <div class="col-md-8 col-md-offset-2 announcements" >
+      {% for announcement in custom.announcements %}
+      <div class="announcements-text">
+        {{ announcement | safe }}
+      </div>
+      {% endfor %}
+    </div>
+  {% endif %}
 
-  @media (max-width: 1400px) {
-    .logos {
-      justify-content: space-around;
-    }
-    .main-content {
-      width: 100%;
-    }
-  }
+  <div class="col-md-8 col-md-offset-2 questions">
+    <div>
+      <h4>What is JupyterHub?</h4>
+      <a href="https://github.com/jupyterhub/jupyterhub">JupyterHub</a> brings
+      the power of notebooks to groups of users. It gives users access to
+      computational environments and resources without burdening the users with
+      installation and maintenance tasks. Users - NOAA
+      researchers and data scientists - can get their work done in their own
+      workspaces on shared resources which can be managed efficiently by system
+      administrators.
+    </div>
 
-  @media (min-width: 1401px) {
-    .main-content {
-      width: 1400px;
-    }
-  }
+    <div>
+      <h4>Who can use this service?</h4>
 
-  .sponsors {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-  }
+      This JupyterHub service is open to NOAA staff participating in NOAA Fisheries
+      Open Science training. Please ensure your are saving any content you want to
+      keep as the user directories may be deleted at any time.
+    </div>
 
-  .sponsors-footer {
-    height: 300px;
-  }
-
-  .sponsor {
-    padding: 10px;
-    max-width: 100%;
-    max-height: 150px;
-  }
-
-  #login-box {
-    border: 1px solid silver;
-    padding: 10px;
-    margin-bottom: 30px;
-    /*   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
-    border-radius: 5px;
-    flex-grow: 2;
-  }
-
-  .body {
-    padding-bottom: 50px;
-  }
-
-  #login-main .auth-form-body {
-    border-color: rgb(0, 124, 186);
-    color: white;
-  }
-
-  #login-main {
-    margin-top: 5%;
-    height: inherit;
-    width: inherit;
-    margin-bottom: 5%;
-  }
-
-  #login-main .container {
-    width: 50%;
-  }
-
-  footer {
-    border-top: 1px solid silver;
-    padding: 10px;
-    bottom: 0;
-    position: fixed;
-    width: 100%;
-  }
-
-  footer p {
-    margin: 0 auto 0 auto;
-    text-align: center;
-  }
-
-  #login-main form {
-    vertical-align: top;
-  }
-
-  #login-main .auth-form-header {
-    color: white;
-    background: rgb(219, 170, 0);
-    border: 1px solid;
-    border-color: rgb(0, 124, 186);
-  }
-
-  #insecure-login-warning {
-    color: black;
-  }
-
-  .btn-jupyter.active,
-  .btn-jupyter:active,
-  .open>.dropdown-toggle.btn-jupyter {
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px #a88400;
-    border-color: #a88400;
-    outline-color: #a88400;
-  }
-
-  #login-main .form-control:focus,
-  #login-main input[type=submit]:focus {
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgb(219, 170, 0);
-    border-color: rgb(219, 170, 0);
-    outline-color: rgb(219, 170, 0);
-  }
-
-  .btn-jupyter {
-    color: #fff;
-    background-color: #F37524;
-    border-color: #E34F21;
-    padding: 10px;
-  }
-
-  .col-1 {
-    width: 8.33%;
-  }
-
-  .col-2 {
-    width: 16.66%;
-  }
-
-  .col-3 {
-    width: 25%;
-  }
-
-  .col-4 {
-    width: 33.33%;
-  }
-
-  .col-5 {
-    width: 41.66%;
-  }
-
-  .col-6 {
-    width: 50%;
-  }
-
-  .col-7 {
-    width: 58.33%;
-  }
-
-  .col-8 {
-    width: 66.66%;
-  }
-
-  .col-9 {
-    width: 75%;
-  }
-
-  .col-10 {
-    width: 83.33%;
-  }
-
-  .col-11 {
-    width: 91.66%;
-  }
-
-  .col-12 {
-    width: 100%;
-  }
-</style>
+  <div class="footer">
+    <p>
+      Built with
+      <a href="https://k8s.org">Kubernetes</a>,
+      <a href="https://helm.sh">Helm</a>,
+      <a href="https://docker.com">Docker</a>,
+      <a href="https://github.com/conda-forge/miniforge">Miniforge</a> and
+      many parts of the <a href="https://jupyter.org">Jupyter Project</a>
+      </p>
+  </div>
+</div>
 {% endblock %}
