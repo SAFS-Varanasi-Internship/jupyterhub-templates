@@ -1,20 +1,16 @@
 {% extends "templates/login.html" %}
 
 {% block main %}
-<div class="container text-center pangeo">
-    <h1>{{ pangeo_hub_title or 'Pangeo JupyterHub' }}</h1>
-    <h2>{{ pangeo_hub_subtitle }}</h2>
+<div class="container text-center">
+    <h1>{{ 'NOAA Fisheries Open Science JupyterHub' }}</h1>
+    <a href="https://nmfs-opensci.github.io">
+      <img src="{{static_url("extra-assets/images/nmfs-opensci-logo3.png") }}" alt="NOAA Fisheries Open Science logo" class='hub-logo' title='hub logo' />
+    </a>
     <p>
-      {% if pangeo_welcome %}
-      {{ (pangeo_welcome | safe) }}
-      {% else %}
-      Welcome to this Pangeo JupyterHub. For more information about Pangeo,
-      visit <a href="http://pangeo.io">pangeo.io</a>.
-      {% endif %}
+      This is a JupyterHub for scientific programming and data science training at NOAA Fisheries.
     </p>
 </div>
   {% block login %}
-  <div class="col-sm-4 left-col">
     <div id="login-box">
       <h3 align="center">Login to JupyterHub</h3>
       {{ super() }}
@@ -22,16 +18,28 @@
     <p>
       <small>
         Funded by the
-        <a href="https://www.ed.gov/news/press-releases/us-department-education-awards-49-million-grant-university-california-davis-develop-free-open-textbooks-program"
-            target="_blank"> Open Textbooks Pilot Program (CFDA No. 84.116T)
-        </a> from the U.S. Department of Education. Equipment and support provided by the
-        <a href="https://bioinformatics.ucdavis.edu/" target="_blank">UC Davis Genome Center Bioinformatics Core</a>.
+        <a href="https://www.noaa.gov/news-release/noaa-microsoft-team-up-to-advance-climate-ready-nation"
+            target="_blank"> NOAA and Microsoft Cooperative Research and Development Agreement (CRADA)
+        </a> to help advance NOAA’s mission to create a Climate-Ready Nation. This JupyterHub is used for internal NOAA training and workshops in cloud computing and scientific programming to support this mission. These trainings focus on analysis with geospatial earth climate data and output from climate models, processing of acoustics data from passive and active surveys, and bioinformatics toolsets for analysis of fisheries genetic data.
       </small>
     </p>
 
-    <div class="sponsors row align-items-center justify-content-around flex-wrap"></div>
-  </div>
   {% endblock login %}
+  <div class="branding">
+    <div class="logos">
+      <a class="logo" href="https://jupyter.org/hub" target="_blank">
+        <img src="{{static_url("jupyter-logo.svg") }}" alt="Jupyter" style="max-height:150px;max-width:100%;">
+      </a>
+      <a class="logo" href="https://posit.co/products/open-source/rstudio/" target="_blank">
+        <img src="{{static_url("rstudio-logo.svg") }}" alt="RStudio" style="max-height:150px;max-width:100%;">
+      </a>
+      <a class="logo" href="https://pangeo.io/" target="_blank">
+        <img src="{{static_url("pangeo.png") }}" alt="Pangeo" style="max-height:150px;max-width:100%;">
+      </a>
+      <a class="logo" href="https://rocker-project.org/" target="_blank">
+        <img src="{{static_url("rocker.png") }}" alt="Rocker Project" style="max-height:150px;max-width:100%;">
+      </a>
+    </div>
 {% endblock %}
 
 {% block stylesheet %}
@@ -49,18 +57,13 @@
     margin: auto 30px;
     flex-wrap: nowrap;
   }
+  
+  img.hub-logo {
+    width: 40%;
+  }
 
   .left-col {
     margin-top: 20px;
-  }
-
-  #libretexts {
-    max-height: 150px;
-  }
-
-  #ucdavis {
-    max-height: 60px;
-    padding: 10px;
   }
 
   .brand {
@@ -200,54 +203,6 @@
     background-color: #F37524;
     border-color: #E34F21;
     padding: 10px;
-  }
-
-  .col-1 {
-    width: 8.33%;
-  }
-
-  .col-2 {
-    width: 16.66%;
-  }
-
-  .col-3 {
-    width: 25%;
-  }
-
-  .col-4 {
-    width: 33.33%;
-  }
-
-  .col-5 {
-    width: 41.66%;
-  }
-
-  .col-6 {
-    width: 50%;
-  }
-
-  .col-7 {
-    width: 58.33%;
-  }
-
-  .col-8 {
-    width: 66.66%;
-  }
-
-  .col-9 {
-    width: 75%;
-  }
-
-  .col-10 {
-    width: 83.33%;
-  }
-
-  .col-11 {
-    width: 91.66%;
-  }
-
-  .col-12 {
-    width: 100%;
   }
 </style>
 {% endblock %}
