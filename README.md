@@ -10,6 +10,7 @@ Some other examples of custom templates:
 Discussion of the approach
 * https://discourse.jupyter.org/t/customizing-jupyterhub-on-kubernetes/1769/4
 * [Video of me walking through the approach](https://youtu.be/dn2TTqIt67A)
+* Credits: [Kenan Erdogan](https://discourse.jupyter.org/u/bitnik/summary) posted this solution to the Juptyer Discourse channel [here](https://discourse.jupyter.org/t/customizing-jupyterhub-on-kubernetes/1769/3) and LibreTexts posted [instructions](https://github.com/LibreTexts/jupyterhub-templates) to their jupyter-templates repo. Note there are errors in the bit about the directory structure on there repo instructions that are fixed below.
 
 
 ## Directory structure
