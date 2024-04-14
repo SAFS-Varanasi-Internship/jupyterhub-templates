@@ -4,13 +4,14 @@
 <div class="container text-center">
     <h1>{{ 'NOAA Fisheries Open Science JupyterHub' }}</h1>
     <a href="https://nmfs-opensci.github.io">
-      <img src="{{static_url("extra-assets/images/nmfs-opensci-logo3.png") }}" alt="NOAA Fisheries Open Science logo" class='hub-logo' title='hub logo' />
+      <img src="{{static_url("extra_assets/images/nmfs-opensci-logo3.png") }}" alt="NOAA Fisheries Open Science logo" class='hub-logo' title='hub logo' />
     </a>
     <p>
       This is a JupyterHub for scientific programming and data science training at NOAA Fisheries.
     </p>
 </div>
   {% block login %}
+  <div class="col-sm-4">
     <div id="login-box">
       <h3 align="center">Login to JupyterHub</h3>
       {{ super() }}
@@ -23,21 +24,21 @@
         </a> to help advance NOAA’s mission to create a Climate-Ready Nation. This JupyterHub is used for internal NOAA training and workshops in cloud computing and scientific programming to support this mission. These trainings focus on analysis with geospatial earth climate data and output from climate models, processing of acoustics data from passive and active surveys, and bioinformatics toolsets for analysis of fisheries genetic data.
       </small>
     </p>
-
+  </div>
   {% endblock login %}
   <div class="branding">
     <div class="logos">
       <a class="logo" href="https://jupyter.org/hub" target="_blank">
-        <img src="{{static_url("jupyter-logo.svg") }}" alt="Jupyter" style="max-height:150px;max-width:100%;">
+        <img src="{{static_url("extra_assets/images/jupyter-logo.svg") }}" alt="Jupyter" style="max-height:150px;max-width:100%;">
       </a>
       <a class="logo" href="https://posit.co/products/open-source/rstudio/" target="_blank">
-        <img src="{{static_url("rstudio-logo.svg") }}" alt="RStudio" style="max-height:150px;max-width:100%;">
+        <img src="{{static_url("extra_assets/images/rstudio-logo.svg") }}" alt="RStudio" style="max-height:150px;max-width:100%;">
       </a>
       <a class="logo" href="https://pangeo.io/" target="_blank">
-        <img src="{{static_url("pangeo.png") }}" alt="Pangeo" style="max-height:150px;max-width:100%;">
+        <img src="{{static_url("extra_assets/images/pangeo.png") }}" alt="Pangeo" style="max-height:150px;max-width:100%;">
       </a>
       <a class="logo" href="https://rocker-project.org/" target="_blank">
-        <img src="{{static_url("rocker.png") }}" alt="Rocker Project" style="max-height:150px;max-width:100%;">
+        <img src="{{static_url("extra_assets/images/rocker.png") }}" alt="Rocker Project" style="max-height:150px;max-width:100%;">
       </a>
     </div>
 {% endblock %}
