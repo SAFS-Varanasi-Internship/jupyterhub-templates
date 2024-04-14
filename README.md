@@ -9,6 +9,7 @@ Some other examples of custom templates:
 
 Discussion of the approach
 * https://discourse.jupyter.org/t/customizing-jupyterhub-on-kubernetes/1769/4
+* [Video of me walking through the approach](https://youtu.be/dn2TTqIt67A)
 
 
 ## Directory structure
