@@ -2,11 +2,14 @@
 
 The original upstream templates can be found here: https://github.com/jupyterhub/jupyterhub/tree/main/share/jupyterhub/templates
 
-See: https://github.com/pangeo-data/pangeo-custom-jupyterhub-templates
+Some other examples of custom templates:
 
-https://discourse.jupyter.org/t/customizing-jupyterhub-on-kubernetes/1769/4
+* https://github.com/pangeo-data/pangeo-custom-jupyterhub-templates
+* https://github.com/LibreTexts/jupyterhub-templates.git
 
-https://github.com/LibreTexts/jupyterhub-templates.git
+Discussion of the approach
+* https://discourse.jupyter.org/t/customizing-jupyterhub-on-kubernetes/1769/4
+
 
 ## Directory structure
 
@@ -14,8 +17,8 @@ The JupyterHub is being launched by the command `jupyterhub` and the files for t
 
 ## Making Changes
 
-1. Make your changes to the GitHub repo with your templates and get them on the master branch. This can be done by either committing straight to the branch or by making a new branch and merging.
-1. Restart the pod that is running the JupyterHub.
+1. Make your changes to the GitHub repo with your templates.
+1. Restart the pod that is running the JupyterHub (see below for instructions).
 
 ```
 kubectl get pods -n dhub
@@ -23,6 +26,7 @@ kubectl get pods -n dhub
 Shows you the pods. Your hub pod with be something like `hub-xxxxx`.
 
 To restart it, you can do one of these. I do the first because the 2nd frightens me.
+
 * make a change to config.yaml and then do a helm upgrade.
 * delete the pod with
 ```
@@ -37,7 +41,7 @@ kubectl exec --stdin --tty hub-xxxx -n dhub -- /bin/bash
 ```
 Gets you into a terminal in your pod so you can look around.
 
-## Usage
+## Edits to your JupyterHub config file.
 
 Add to the Z2JH config file. Uses the `alpine/git` image as an initContainer to clone the repo and move the template files to the right places.
 ```yaml
