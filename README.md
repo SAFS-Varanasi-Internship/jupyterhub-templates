@@ -1,4 +1,5 @@
 # JupyterHub Templates
+## Notes by EE Holmes
 
 The original upstream templates can be found here: https://github.com/jupyterhub/jupyterhub/tree/main/share/jupyterhub/templates
 
